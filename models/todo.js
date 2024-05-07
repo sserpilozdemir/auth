@@ -1,14 +1,15 @@
 import Sequelize from 'sequelize';
 import { DataTypes } from 'sequelize';
+import sequelize from './sequelize.js';
 
-const sequelize = new Sequelize('todo', 'postgres', 'postgres', {
-    host: 'localhost',
-    port: '5432',
-    dialect: 'postgres'
-    // define: {
-    //     freezeTableName: true
-    // }
-});
+// const sequelize = new Sequelize('todo', 'postgres', 'postgres', {
+//     host: 'localhost',
+//     port: '5432',
+//     dialect: 'postgres'
+//     // define: {
+//     //     freezeTableName: true
+//     // }
+// });
 
 const Todos = sequelize.define('todos', {
     task_id: {
