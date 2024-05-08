@@ -4,7 +4,9 @@ import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
-import { router } from './routes/usersRoutes.js';
+import { todoRouters } from './routes/todoRouters.js';
+import { userAuthRouters } from './routes/userAuthControllers.js';
+
 dotenv.config();
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -17,8 +19,9 @@ app.use(cors(corsOptions));
 app.use(json());
 app.use(cookieParser());
 
-app.use('/', express.static(join(__dirname, 'public')))
-app.use('/api', router)
+app.use('/', express.static(join(__dirname, 'public')));
+app.use('/api', todoRouters);
+app.use('/api', userAuthRouters);
 
 app.listen(PORT, () => {
     console.log(`Server is listening ${PORT}`);

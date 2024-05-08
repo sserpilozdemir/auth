@@ -8,9 +8,6 @@ const sequelize = new Sequelize('todo', 'postgres', 'postgres', {
     host: 'localhost',
     port: '5432',
     dialect: 'postgres'
-    // define: {
-    //     freezeTableName: true
-    // }
 });
 
 const User = sequelize.define('user', {
